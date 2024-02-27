@@ -7,7 +7,7 @@
 	@mouseenter="atMouseenter"
 	@mouseleave="atMouseleave"
 >
-	<video 
+	<video
 		ref="video"
 		:src="srcComputed"
 		:controls="false"
@@ -34,7 +34,7 @@
 		v-if="!started"
 	/>
 
-	<div 
+	<div
 		:class="overlayClass"
 		v-if="!started"
 	>
@@ -54,15 +54,15 @@
 
 	</div>
 
-	
-	<i 
+
+	<i
 		class="material-icons size-124 spin"
 		v-if="started && loading"
 	>refresh</i>
-	
+
 	<!-- Use this slot to replace the controls  -->
 	<slot name="controls">
-		<controls 
+		<controls
 			:class="controlsClass"
 			:show="showControlsIf"
 			:style="controlsStyleComputed"
@@ -72,27 +72,27 @@
 				:style="playButtonStyle"
 				@click="atPlayPause"
 			>
-				<i 
+				<i
 					v-if="!playingComputed"
 					class="material-icons"
 				>
 					play_arrow
 				</i>
 
-				<i 
+				<i
 					v-else
 					class="material-icons"
 				>
 					pause
 				</i>
 			</p-button>
-			
+
 			<p-button
 				@click="atVolume"
 				:class="volumeButtonClass"
 				:style="volumeButtonStyle"
 			>
-				<i 
+				<i
 					class="material-icons"
 				>
 					volume_up
@@ -134,14 +134,14 @@
 </template>
 
 <script>
-import controls from './controls'
-import pButton from './button'
-import range from './range'
-import videoPlaceholder from './videoPlaceholder'
+import controls from './controls.vue'
+import pButton from './button.vue'
+import range from './range.vue'
+import videoPlaceholder from './videoPlaceholder.vue'
 
   /**
    * A must have html5 video player made in VueJS
-   * 
+   *
    * @author Artur  Sena
    */
 export default {
@@ -176,7 +176,7 @@ export default {
 		},
 
 		/**
-       * Define the source for the video tag. 
+       * Define the source for the video tag.
 	   * if array uses the src-index to pick one
        */
 		src: {
@@ -213,12 +213,12 @@ export default {
 			type: Boolean,
 			default: false
 		},
-		
+
 		/**
        * set a image placeholder util the video start to play once
        */
 		poster: String,
-		
+
 		/**
        * if you want a video teaser you can use this, will be played with-out sound
        */
@@ -232,7 +232,7 @@ export default {
 			type: Number,
 			default: undefined
 		},
-		
+
 		/**
        * show/hide the controls
        */
@@ -355,7 +355,7 @@ export default {
 	   test (e) {
 		   console.log("test", e)
 	   },
-		
+
 		/**
        * @private
        */
@@ -375,18 +375,18 @@ export default {
 			if (!this.fullscreenComputed) {
 				if (this.$el.requestFullscreen) {
 					this.$el.requestFullscreen()
-	
+
 				} else if (this.$el.mozRequestFullScreen) { /* Firefox */
 					this.$el.mozRequestFullScreen()
-	
+
 				} else if (this.$el.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
 					this.$el.webkitRequestFullscreen()
-	
+
 				} else if (this.$el.msRequestFullscreen) { /* IE/Edge */
 					this.$el.msRequestFullscreen()
 				}
 				this.fullscreenComputed = true
-				
+
 				/**
 				 * emited when players go fullscreen
 				 */
@@ -403,7 +403,7 @@ export default {
 				}
 
 				this.fullscreenComputed = false
-				
+
 				/**
 				 * emited when players exits fullscreen
 				 */
@@ -497,7 +497,7 @@ export default {
        */
 		controlsStyleComputed() {
 			if (this.controlsStyle != undefined) return this.controlsStyle
-			
+
 			let result = ''
 
 			return result
@@ -595,7 +595,7 @@ export default {
        * @private
        */
 		showControlsIf () {
-			return (this.showControlsComputed || !this.playingComputed) && this.started 
+			return (this.showControlsComputed || !this.playingComputed) && this.started
 		},
 
 		/**
@@ -618,7 +618,7 @@ export default {
 
 			let seconds = Math.floor(this.time - minutes * 60);
 			seconds = String(seconds).padStart(2,0)
-			
+
 			return `${minutes}:${seconds}`
 		},
 
@@ -696,7 +696,7 @@ export default {
 
 .vue-video-player {
 	position: relative;
-	font-size:0; 
+	font-size:0;
 	color: white;
 	display: block;
 }
@@ -739,7 +739,7 @@ export default {
 }
 
 input[type=range].vue-player-time-control {
-	position: absolute;	
+	position: absolute;
 	top: -5px;
 	left: 0;
 	padding-top: 0;

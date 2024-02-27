@@ -6,13 +6,13 @@
 		v-if="loading"
 	/>
 
-	<video 
+	<video
 		:src="src"
 		:controls="false"
 		class="placeholder"
 		:loop="true"
-		autoplay 
-		muted 
+		autoplay
+		muted
 		playsinline
 		v-show="showVideo"
 		v-if="ifVideo"
@@ -41,17 +41,17 @@ export default {
 			required: false,
 			type: String
 		},
-		
+
 		poster: {
 			required: false,
 			type: String
 		},
-		
+
 		previewOnMouse: {
 			type: Boolean,
 			default: false
 		},
-		
+
 		mouseover: {
 			type: Boolean,
 			default: false
@@ -108,11 +108,11 @@ export default {
 		},
 
 		showVideo () {
-			let result = false 
-			
+			let result = false
+
 			if (this.previewOnMouse) {
 				if (this.src && this.mouseover) result = true
-			} 
+			}
 
 			if (!this.previewOnMouse) {
 				if (this.src) result = true
