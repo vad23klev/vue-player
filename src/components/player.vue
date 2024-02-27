@@ -138,6 +138,7 @@ import controls from './controls.vue'
 import pButton from './button.vue'
 import range from './range.vue'
 import videoPlaceholder from './videoPlaceholder.vue'
+import 'material-design-icons/iconfont/material-icons.css';
 
   /**
    * A must have html5 video player made in VueJS
@@ -639,7 +640,6 @@ export default {
 </script>
 
 <style scoped>
-@import '~material-design-icons/iconfont/material-icons.css';
 
 .title {
 	padding-top: 3px;
